@@ -1,5 +1,4 @@
 <?php
-
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\ListView;
@@ -17,7 +16,6 @@ $this->registerCss("<style>
         }
     </style>");
 ?>
-
 <br>
 <div class="post-index">
 

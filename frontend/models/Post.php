@@ -91,9 +91,15 @@ class Post extends \yii\db\ActiveRecord
 
     public function imageUploadThenSave()
     {
+        $path = Yii::$app->basePath.DIRECTORY_SEPARATOR."web".DIRECTORY_SEPARATOR."uploads";
         if ($this->validate())
         {
             if(!empty($this->image_path)) {
+
+                if(!is_dir($path)) {
+                     mkdir($path,0755, true);
+                }
+
                 $this->image_path->saveAs('uploads/'.$this->image_path->baseName.'.'.$this->image_path->extension);
             }
             return $this->save(false);
